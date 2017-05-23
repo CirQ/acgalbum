@@ -1,0 +1,10 @@
+rails d model Artist
+rails d model Album
+rails d model Song
+
+rails generate model Artist name:string site:string --no-timestamps
+rails generate model Album name:string site:string description:string coverpath:string fingerprint:bigint artist:references --no-timestamps
+rails generate model Song name:string site:string description:string artist:references album:references --no-timestamps
+
+rails db:migrate
+

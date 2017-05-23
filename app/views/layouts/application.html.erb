@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Acgalbum</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+<div class="row:12">
+    <div class="col:3 hidden">@</div>
+    <div class="col:6">
+
+        <%= yield %>
+
+        <div id="foot" class="fixed-foot">
+            <div class="align:center padding-bottom:15 padding-top:10 border:top margin-top:50">
+                <span class="padding-right:10 italic">
+                    Designed by <a href="http://cirqqq.xyz">CirQ</a>
+                </span>
+                <span class="padding-left:10 italic">
+                    on <a href="http://peterchon.github.io/mimic/">Mimic</a>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col:3 hidden">@</div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        function footerPosition() {
+            var contentHeight = document.body.scrollHeight,
+                winHeight = window.innerHeight;
+            if (contentHeight < winHeight) {
+                $("#foot").addClass("fixed-foot");
+            } else {
+                $("#foot").removeClass("fixed-foot");
+            }
+        }
+
+        footerPosition();
+        $(window).resize(footerPosition);
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<div class="padding-top:10 padding-left:30 padding-bottom:10 border:bottom fancy">
+    ACG Albums
+</div>
+
+<div class="row:10">
+    <div class="col:1 hidden">@</div>
+    <div class="col:8 margin-top:30">
+        <ul class="font-size:20">
+            <li>
+                <span class="font-size:28 bold italic">What is this?</span>
+                <div class="align:justify">This is a simple Ruby on Rails application intended to query an image of album belongs to ACG (animate, comic, game) catagory. Besides the pratical usage, this is the course design work for semester 6th's course Database Application Development (DAD), and more over, starting up to develop with Rails.</div>
+            </li>
+            <li>
+                <span class="font-size:28 margin-top:15 bold italic">Is it reliable?</span>
+                <div class="align:justify">Actually, no. All albums are collected from <%= link_to 'animelo', @host %> weekly/monthly ranking by a python web crawler, and all data are stored in single-file database sqlite. Due to data source limitation and supporting efficiency, it is not competent to general purpose image recognition and query. But in the specific domain, this tiny web application is sufficiently useful and, most importantly, interesting.</div>
+            </li>
+            <li>
+                <span class="font-size:28 margin-top:15 bold italic">How to use it?</span>
+                <div class="align:justify">Currently, you can only enter image URL to upload it, though drag and drop uploading is fancy, it is rather complicated to be implemented at current step.</div>
+            </li>
+        </ul>
+
+        <span class="margin-top:50">
+                    <%= form_for :album do |f| %>
+                        <%= f.label 'Source url:', :class => 'font-size:24' %>
+                <%= f.text_field :url, :class => 'font-size:24' %>
+                <%= f.submit 'Sumbit', :class => 'font-size:15' %>
+                    <% end %>
+                </span>
+    </div>
+
+    <div class="col:1 hidden">@</div>
+</div>

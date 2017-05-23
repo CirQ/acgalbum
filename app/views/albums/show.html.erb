@@ -1,0 +1,48 @@
+<div class="padding-top:10 padding-bottom:10 border:bottom margin-bottom:50">
+    <h4 class="padding-left:30">The most probable album of the image:</h4>
+</div>
+
+<div class="row:12">
+    <div class="col:1 hidden">@</div>
+
+    <div class="col:4">
+        <div class="padding-left:10 margin-top:10">
+            <%= image_tag @album.coverpath %>
+        </div>
+
+        <div class="padding-left:5 margin-top:10 fancy30">
+            <%= @album.name %>
+        </div>
+        <div class="padding-left:5 margin-top:10 italic">
+            <%= @album.description %>
+        </div>
+        <div class="padding-left:5 margin-top:20">
+            <div class="bold">Artist:</div>
+            <%= link_to @album.artist.name, @host+@album.artist.site, :target => '_blank' %>
+        </div>
+        <div class="padding-left:5 border:top margin-top:50 font-size:18">
+            View this album in
+            <%= link_to 'animelo', @host+@album.site %>.
+        </div>
+    </div>
+
+    <div class="col:1 hidden">@</div>
+
+    <div class="col:5">
+        <h5 class="bold margin-bottom:20"><%= @album.songs.count %> songs included:</h5>
+        <ul class="list-none">
+            <% @album.songs.each do |song| %>
+                <li class="margin-bottom:10">
+                    <%= link_to song.name, @host+song.site, {:target => '_blank', :class => 'fancy20'} %>
+                    <p class="font-size:15 margin-bottom:2 italic"><%= song.description %></p>
+                    <span class="font-size:14">
+                                <span class="bold display:inline">Artist: </span>
+                        <%= song.artist.name %>
+                            </span>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+
+    <div class="col:1 hidden">@</div>
+</div>

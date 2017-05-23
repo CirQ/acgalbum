@@ -1,0 +1,11 @@
+/*
+ *= require_tree .
+ *= require_self
+ */
+
+.hidden{visibility:hidden}
+.bold{font-weight:500}
+.italic{font-style:italic}
+
+#foot{position:absolute;width:inherit;background:white}
+.fixed-foot{bottom:0}
